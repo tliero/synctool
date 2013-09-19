@@ -1,0 +1,44 @@
+Weitere Optionen
+- no sync for conflicting files
+- exclude files (via regex) 
+
+
+Alternativer Ansatz:
+Statt die Verzeichnisinhalte in Listen zu verwalten, könnte man die Liste beim Betreten eines Verzeichnisses
+neu einlesen und sortieren. Wenn man "von unten" aus der Rekursion zurück kommt, macht man bei der Datei weiter,
+die in der aktuellen Liste als nächstes kommt.
+Vorteil: Geringerer Speicherbedarf, da keine Datei-Listen des gesamten Verzeichnis-Baumes oberhalb der aktuellen
+Position gehalten werden müssen.
+Nachteil: Ständiges Lesen und Sortieren der Verzeichnisinhalte.
+
+
+Parameter:
+	-no-delete
+	-no-replace
+	-starttime
+		-logfile
+		-db -- path to database
+		-dry-run -- perform a trial run with no changes made
+		-hash -- compare the files by their MD5 hashes
+	-unidirectional/-oneway
+	-granularity <ms>
+	
+	-times -- synchronize modification times (only)
+	-owner/-group -- synchronize owner/group
+	-version
+	-exclude/-include
+	-silent/-verbose
+	-nowriteprotection
+		-help
+	-mailto -- http://openbook.galileodesign.de/javainsel5/javainsel16_010.htm#Rxx747java160100400063D1F048118
+		-jabber -- http://www.igniterealtime.org/projects/smack/index.jsp
+
+Apache Commons:
+	DirectoryWalker: evtl. für Abbruch
+	FileUtils: copy & delete
+
+Tests: Dateien mit Mockito simulieren?
+
+Dateien kopieren: http://openbook.galileocomputing.de/javainsel8/javainsel_14_003.htm#mjdbd1ea4c51ff569d905c698602549180
+MD5 on the fly: http://stackoverflow.com/questions/304268/using-java-to-get-a-files-md5-checksum
+MD5 direkt: String md5 = org.apache.commons.codec.digest.DigestUtils.md5Hex(new FileInputStream(srcFiles[0]));
