@@ -1,3 +1,9 @@
+Start:
+# mit Jabber-Logging und E-Mail-Report
+sudo -u nobody java -Xmx120m -jar /media/usb/synctool/synctool.jar -f /media/usb/synctool/synctool /media/hidrive /media/usb/hidrive -i -l /media/usb/synctool/sync.log -o -s -j twalther@jabber.fu-berlin.de -r jabber.org -u twalther42 -p JABBERPASSWORD -t tlierodev@gmail.com -w GMAILPASSWORD -e tilman@tilman.de -g /media/usb/hidrive/Dokumente/Finanzen/Ausgaben-Datenbank/database/db.lck --check-file-exists /media/hidrive/Tilman
+
+
+
 Weitere Optionen
 - no sync for conflicting files
 - exclude files (via regex) 
