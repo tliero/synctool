@@ -314,6 +314,11 @@ public class SyncTool {
 			// opposite direction: process remaining files from destination
 			log.debug(" sync destination side");
 			for (File destFile : destMap.values()) {
+				if (ignoredFiles.contains(destFile.getPath())) {
+					log.info("  Ignoring file " + destFile.getPath());
+					continue;
+				}
+				
 				// check synchronization history
 				selectFileSql.setString(1, new File(srcDir, destFile.getName()).getCanonicalPath());
 				log.debug("  get history");
@@ -474,7 +479,7 @@ public class SyncTool {
 	public static void main(String[] args) {
 		
 		BasicConfigurator.configure(new ConsoleAppender(new PatternLayout("%d{ISO8601} - %m%n")));
-		log.info("Starting SyncTool version 1.41");
+		log.info("Starting SyncTool version 1.42");
 
 		JSAP jsap = new JSAP();
 
