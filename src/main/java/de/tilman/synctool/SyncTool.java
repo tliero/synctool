@@ -275,7 +275,7 @@ public class SyncTool {
 				srcFiles[i] = null;
 				File destFile = destMap.remove(srcFile.getName());
 				
-				// check for files to ignore
+				// check for files to ignore 
 				if (ignoredFiles != null) {
 					if (ignoredFiles.contains(srcFile.getPath())) {
 						log.info("  Ignoring file " + srcFile.getPath());
