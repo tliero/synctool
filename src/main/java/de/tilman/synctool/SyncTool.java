@@ -281,6 +281,10 @@ public class SyncTool {
 						log.info("  Ignoring file " + srcFile.getPath());
 						continue;
 					}
+					if (ignoredFiles.contains(destFile.getPath())) {
+						log.info("  Ignoring file " + destFile.getPath());
+						continue;
+					}
 				}
 
 				// check synchronization history
