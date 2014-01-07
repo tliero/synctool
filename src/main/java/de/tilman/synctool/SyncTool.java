@@ -123,6 +123,7 @@ public class SyncTool {
 			Class.forName("org.h2.Driver");
 
 			connection = DriverManager.getConnection("jdbc:h2:file:" + config.getString("database file"), "sa", "");
+			connection.setAutoCommit(true);
 			statement = connection.createStatement();
 			
 			resultSet = connection.getMetaData().getTables(null, null, "%", new String[] { "TABLE" });
@@ -479,7 +480,7 @@ public class SyncTool {
 	public static void main(String[] args) {
 		
 		BasicConfigurator.configure(new ConsoleAppender(new PatternLayout("%d{ISO8601} - %m%n")));
-		log.info("Starting SyncTool version 1.42");
+		log.info("Starting SyncTool version 1.43");
 
 		JSAP jsap = new JSAP();
 

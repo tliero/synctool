@@ -4,7 +4,7 @@
 
 	<groupId>SyncTool</groupId>
 	<artifactId>synctool</artifactId>
-	<version>1.42</version>
+	<version>1.43</version>
 	<packaging>jar</packaging>
 
 	<name>SyncTool</name>
